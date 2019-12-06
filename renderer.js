@@ -122,22 +122,27 @@ document.querySelector(`#select-input-file`).addEventListener('click', () => {
 
 document.querySelector('#decompress-button').addEventListener('click', () => {
   deactivateDocLinks()
-  activateDocLink('output')
-  inputView.decompress(inputView.data)
-  .then(result => {
-    outputView.setData(result)
-    outputView.error = undefined
-    renderDataPane('output')
+  if (inputView.data) {
+    activateDocLink('output')
+    inputView.decompress(inputView.data)
+    .then(result => {
+      outputView.setData(result)
+      outputView.error = undefined
+      renderDataPane('output')
+      })
+    .catch(err => {
+      outputView.error = err
+      renderDataPane('output')
     })
-  .catch(err => {
-    outputView.error = err
-    renderDataPane('output')
-  })
+  }
+  else {
+    dialog.showErrorBox('Nothing to convert', 'Load the input data first.')
+  }
 })
 
 document.querySelector(`#select-output-file`).addEventListener('click', () => {
   document.querySelector(`#select-output-file`).classList.add('active')
-  if (output.data) {
+  if (outputView.data) {
     selectOutputFile(fileName => {
       document.querySelector('#select-output-file').classList.remove('active')
       if (fileName) {
