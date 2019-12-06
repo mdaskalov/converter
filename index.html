@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Converter</title>
+  <link rel="stylesheet" href="css/photon.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="window">
+
+    <!-- .toolbar-header sits at the top of your app -->
+    <header class="toolbar toolbar-header">
+      <h1 class="title">Format Converter</h1>
+      <div class="toolbar-actions">
+        <div class="btn-group">
+          <button id="select-input-file" class="btn btn-default">
+            <span class="icon icon-folder"></span>
+          </button>
+          <button id="decompress-button" class="btn btn-default">
+            <span class="icon icon-retweet"></span>
+          </button>
+          <button id="select-output-file"  class="btn btn-default">
+            <span class="icon icon-floppy"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- Your app's content goes inside .window-content -->
+    <div class="window-content">
+      <div class="pane-group">
+        <div class="pane pane-sm sidebar">
+          <nav class="nav-group">
+            <h5 class="nav-group-title">Data</h5>
+            <span id="input-view" class="nav-group-item active">
+              <span class="icon icon-login"></span>
+              Input
+            </span>
+            <span id="output-view" class="nav-group-item">
+              <span class="icon icon-logout"></span>
+              Output
+            </span>
+          </nav>
+        </div>
+        <div id="data-pane" class="pane">
+          no data loaded.
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  require('./renderer')
+  </script>
+</body>
+
+</html>
