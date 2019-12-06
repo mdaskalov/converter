@@ -57,8 +57,8 @@ const deactivateDocLinks = () => {
   })
 }
 
-const activateDocLink = view => {
-  const docLink = document.querySelector(`#${view}-view.nav-group-item`)
+const activateDocLink = viewName => {
+  const docLink = document.querySelector(`#${viewName}-view.nav-group-item`)
   docLink.classList.add('active')
 }
 
