@@ -1,0 +1,21 @@
+{
+  "name": "converter",
+  "version": "1.0.0",
+  "description": "Generic data format converter",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "format",
+    "converter"
+  ],
+  "build": {
+    "win": {
+      "target": "portable"
+    }
+  },
+  "author": "Milko Daskalov",
+  "license": "ISC"
+}
