@@ -8,6 +8,11 @@ class View {
     this.error = undefined
   }
 
+  setData(data) {
+    this.error = undefined
+    this.data = data
+  }
+
   setError(error) {
     this.error = error
     this.data = undefined
