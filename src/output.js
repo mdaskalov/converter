@@ -1,5 +1,3 @@
-const { dialog } = require('electron').remote
-const fs = require('fs')
 const pd = require('pretty-data').pd
 const View = require('./view')
 
@@ -11,24 +9,16 @@ class OutputView extends View {
 
   setData(data) {
     this.error = undefined
+    let asString = '' + data
     switch (this.format) {
       case 'xml':
-        this.data=pd.xml(data.toString())
+        this.data=pd.xml(asString)
         break
       case 'json':
-        this.data=pd.json(data.toString())
+        this.data=pd.json(asString)
         break
     }
-  }
-
-  async saveFile(name) {
-    try {
-      await fs.writeFile(name, this.data)
-    }
-    catch(err) {
-      dialog.showErrorBox('Error writting file', err)
-    }
-  }
+}
 }
 
 module.exports = OutputView
