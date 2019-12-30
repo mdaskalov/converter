@@ -18,10 +18,16 @@ class View {
     this.data = undefined
   }
 
+  renderData() {
+    return this.data
+  }
+
   render() {
     var template = fs.readFileSync(path.join(__dirname, '../templates', this.name + '.mustache'), 'utf-8')
-    return mustache.render(template, this);
+    let view = { error: this.error, data: this.renderData() }
+    return mustache.render(template, view);
   }
+
 }
 
 module.exports = View;
