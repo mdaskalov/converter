@@ -10,7 +10,7 @@ class View {
 
   setData(data) {
     this.error = undefined
-    this.data = data
+    this.data = (data+'').trim()
   }
 
   setError(error) {
