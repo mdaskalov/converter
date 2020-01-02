@@ -2,6 +2,7 @@
   "name": "converter",
   "version": "1.0.0",
   "description": "Generic data format converter",
+  "repository": "https://github.com/mdaskalov/converter.git",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
