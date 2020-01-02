@@ -2,7 +2,8 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
-const { dialog } = require('electron').remote
+const { remote } = require('electron')
+const { Menu, MenuItem, dialog} = remote
 
 const fs = require('fs').promises
 const path = require('path')
@@ -136,6 +137,47 @@ document.querySelector('#select-output-file').addEventListener('click', async ()
   }
   document.querySelector('#select-output-file').classList.remove('active')
 })
+
+let inputFormatButton = document.querySelector('#input-format-button')
+let outputFormatButton = document.querySelector('#output-format-button')
+
+setInputFormat = format => {
+  inputView.format = format
+  document.querySelector('#input-format').innerHTML = format
+}
+
+setOutputFormat = format => {
+  outputView.format = format
+  document.querySelector('#output-format').innerHTML = format
+}
+
+let inputFormats = [ 'Base64-ZIP-Decode' ]
+const inputFormat = new Menu()
+inputFormats.forEach( format => {
+  inputFormat.append(new MenuItem({ label: format, click() { setInputFormat(format) } }))
+})
+
+let outputFormats = [ 'XML', 'JSON', 'CSS', 'SQL', 'TEXT' ]
+const outputFormat = new Menu()
+outputFormats.forEach( format => {
+  outputFormat.append(new MenuItem({ label: format, click() { setOutputFormat(format) } }))
+})
+
+inputFormatButton.addEventListener('click', e => {
+  let rect = inputFormatButton.getBoundingClientRect()
+  inputFormat.popup({ window: remote.getCurrentWindow(), x:  Math.round(rect.x) , y: Math.round(rect.bottom+5), callback() {
+  }})
+}, false)
+
+outputFormatButton.addEventListener('click', e => {
+  let rect = outputFormatButton.getBoundingClientRect()
+  outputFormat.popup({ window: remote.getCurrentWindow(), x:  Math.round(rect.x) , y: Math.round(rect.bottom+5), callback() {
+    if (outputView.data != undefined) {
+      // render in the new format
+      renderDataPane('output')
+    }
+  }})
+}, false)
 
 // Global
 
