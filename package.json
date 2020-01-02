@@ -25,7 +25,6 @@
   },
   "dependencies": {
     "mustache": "^3.2.1",
-    "pretty-data": "^0.40.0",
-    "zlib": "^1.0.5"
+    "pretty-data": "^0.40.0"
   }
 }
