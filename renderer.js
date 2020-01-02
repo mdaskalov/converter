@@ -78,8 +78,8 @@ Array.prototype.forEach.call(docButtons, button => {
   }
 })
 
-document.querySelector(`#select-input-file`).addEventListener('click', async () => {
-  document.querySelector(`#select-input-file`).classList.add('active')
+document.querySelector('#select-input-file').addEventListener('click', async () => {
+  document.querySelector('#select-input-file').classList.add('active')
   let fileName = await selectInputFile()
   if (fileName) {
     deactivateDocLinks()
@@ -94,11 +94,11 @@ document.querySelector(`#select-input-file`).addEventListener('click', async () 
     }
     renderDataPane('output')
   }
-  document.querySelector(`#select-input-file`).classList.remove('active')
+  document.querySelector('#select-input-file').classList.remove('active')
 })
 
 document.querySelector('#convert-button').addEventListener('click', async () => {
-  document.querySelector(`#convert-button`).classList.add('active')
+  document.querySelector('#convert-button').classList.add('active')
   if (inputView.data) {
     deactivateDocLinks()
     try {
@@ -113,11 +113,11 @@ document.querySelector('#convert-button').addEventListener('click', async () => 
   else {
     dialog.showErrorBox('Nothing to convert', 'Load the input data first.')
   }
-  document.querySelector(`#convert-button`).classList.remove('active')
+  document.querySelector('#convert-button').classList.remove('active')
 })
 
-document.querySelector(`#select-output-file`).addEventListener('click', async () => {
-  document.querySelector(`#select-output-file`).classList.add('active')
+document.querySelector('#select-output-file').addEventListener('click', async () => {
+  document.querySelector('#select-output-file').classList.add('active')
   if (outputView.data) {
     let fileName = await selectOutputFile();
     if (fileName) {
