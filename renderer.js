@@ -62,14 +62,7 @@ const renderDataPane = viewName => {
     document.querySelector('#data-pane').innerHTML = view.render();
     deactivateDocLinks()
     activateDocLink(viewName)
-
-    // bind input textarea events
-    let inputData = document.querySelector('#input-data')
-    if (inputData) {
-      inputData.addEventListener('change', event => {
-        inputView.data = event.target.value.trim()
-      })
-    }
+    view.updateEvents()
   }
 }
 

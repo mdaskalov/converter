@@ -5,7 +5,6 @@ class InputView extends View
 {
   constructor() {
     super('input')
-    this.data = undefined
   }
 
   convert(source) {
@@ -20,6 +19,16 @@ class InputView extends View
         }
       })
     })
+  }
+
+  updateEvents() {
+    // bind input textarea events
+    let inputData = document.querySelector('#input-data')
+    if (inputData) {
+      inputData.addEventListener('change', event => {
+        this.setData(event.target.value)
+      })
+    }
   }
 }
 
