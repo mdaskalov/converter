@@ -19,5 +19,5 @@ $ npm start
 Native executables could be generated using [electron-builder](https://github.com/electron-userland/electron-builder):
 
 ```
-$ node_modules/.bin/electron-builder 
+$ ./node_modules/.bin/electron-builder 
 ```
