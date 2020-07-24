@@ -10,14 +10,21 @@ class InputView extends View
   convert(source) {
     return new Promise((resolve, reject) => {
       let b64decoded = new Buffer.from(source, 'base64')
-      zlib.unzip(b64decoded, (err, result) => {
-        if (err) {
-          reject(err)
-        }
-        else {
-          resolve(result)
-        }
-      })
+      switch (this.format) {
+        case 'Base64-Decode':
+          resolve(b64decoded)
+          break
+        case 'Base64-ZIP-Decode':
+          zlib.unzip(b64decoded, (err, result) => {
+            if (err) {
+              reject(err)
+            }
+            else {
+              resolve(result)
+            }
+          })
+          break
+      }
     })
   }
 
