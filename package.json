@@ -14,17 +14,17 @@
   ],
   "build": {
     "win": {
-      "target": "portable"
+      "target": "msi"
     }
   },
   "author": "Milko Daskalov",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^7.1.7",
-    "electron-builder": "^21.2.0"
+    "electron": "^9.1.1",
+    "electron-builder": "^22.7.0"
   },
   "dependencies": {
-    "mustache": "^3.2.1",
+    "mustache": "^4.0.1",
     "pretty-data": "^0.40.0"
   }
 }
