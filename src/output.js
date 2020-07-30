@@ -26,7 +26,7 @@ class OutputView extends View {
           return pd.sql(data)
           break
         case 'HEXDUMP':
-          return hex(Buffer.from(data), { group: 1, offsetWidth: 4 })
+          return hex(Buffer.from(data), { group: 1, offsetWidth: 5 })
           break
         default:
           return data
