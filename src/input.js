@@ -5,6 +5,7 @@ class InputView extends View
 {
   constructor() {
     super('input')
+    this.format = 'Base64-Decode'
   }
 
   convert(source) {
@@ -23,6 +24,9 @@ class InputView extends View
               resolve(result)
             }
           })
+          break
+        case 'Unchanged':
+          resolve(source)
           break
       }
     })
