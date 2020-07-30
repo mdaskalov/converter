@@ -1,4 +1,5 @@
 const pd = require('pretty-data').pd
+const hex = require('hexer')
 const View = require('./view')
 
 class OutputView extends View {
@@ -23,6 +24,9 @@ class OutputView extends View {
           break
         case 'SQL':
           return pd.sql(data)
+          break
+        case 'HEXDUMP':
+          return hex(Buffer.from(data), { group: 1, offsetWidth: 4 })
           break
         default:
           return data

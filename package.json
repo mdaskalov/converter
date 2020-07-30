@@ -24,6 +24,7 @@
     "electron-builder": "^22.7.0"
   },
   "dependencies": {
+    "hexer": "^1.5.0",
     "mustache": "^4.0.1",
     "pretty-data": "^0.40.0"
   }
