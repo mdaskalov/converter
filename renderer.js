@@ -151,13 +151,13 @@ setOutputFormat = format => {
   document.querySelector('#output-format').innerHTML = format
 }
 
-let inputFormats = [ 'Base64-Decode', 'Base64-ZIP-Decode' ]
+let inputFormats = [ 'Base64-Decode', 'Base64-ZIP-Decode', 'Unchanged' ]
 const inputFormat = new Menu()
 inputFormats.forEach( format => {
   inputFormat.append(new MenuItem({ label: format, click() { setInputFormat(format) } }))
 })
 
-let outputFormats = [ 'XML', 'JSON', 'CSS', 'SQL', 'TEXT' ]
+let outputFormats = [ 'XML', 'JSON', 'CSS', 'SQL', 'HEXDUMP', 'Unchanged' ]
 const outputFormat = new Menu()
 outputFormats.forEach( format => {
   outputFormat.append(new MenuItem({ label: format, click() { setOutputFormat(format) } }))
