@@ -8,6 +8,13 @@ class InputView extends View
     this.format = 'Base64-Decode'
   }
 
+  htmlDecode(input) {
+    var e = document.createElement('textarea')
+    e.innerHTML = input
+    // handle case of empty input
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue
+  }
+  
   convert(source) {
     return new Promise((resolve, reject) => {
       let b64decoded = new Buffer.from(source, 'base64')
@@ -24,6 +31,9 @@ class InputView extends View
               resolve(result)
             }
           })
+          break
+        case 'HTML-Decode':
+          resolve(this.htmlDecode(source))
           break
         case 'Unchanged':
           resolve(source)

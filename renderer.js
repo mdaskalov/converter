@@ -151,7 +151,7 @@ setOutputFormat = format => {
   document.querySelector('#output-format').innerHTML = format
 }
 
-let inputFormats = [ 'Base64-Decode', 'Base64-ZIP-Decode', 'Unchanged' ]
+let inputFormats = [ 'Base64-Decode', 'Base64-ZIP-Decode', 'HTML-Decode', 'Unchanged' ]
 const inputFormat = new Menu()
 inputFormats.forEach( format => {
   inputFormat.append(new MenuItem({ label: format, click() { setInputFormat(format) } }))
