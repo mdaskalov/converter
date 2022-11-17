@@ -14,12 +14,16 @@ class InputView extends View
     // handle case of empty input
     return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue
   }
-  
+
   convert(source) {
     return new Promise((resolve, reject) => {
-      let b64decoded = new Buffer.from(source, 'base64')
       switch (this.format) {
+        case 'Base64-Encode':
+          const b64encoded = source.toString('base64')
+          resolve(b64encoded);
+          break;
         case 'Base64-Decode':
+          const b64decoded = new Buffer.from(source, 'base64')
           resolve(b64decoded)
           break
         case 'Base64-ZIP-Decode':
