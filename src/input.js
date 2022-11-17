@@ -1,11 +1,24 @@
 const zlib = require('zlib')
 const View = require('./view')
 
-class InputView extends View
-{
+class InputView extends View {
   constructor() {
     super('input')
     this.format = 'Base64-Decode'
+  }
+
+  hexStringToString(str) {
+    var res = ''
+    if (str) {
+      var result = [];
+      for (var i = 0, len = str.length; i < len; i += 2) {
+        let hex = parseInt(str.substr(i, 2), 16)
+        result.push(hex)
+      }
+      res = String.fromCharCode.apply(null, result)
+    }
+
+    return res;
   }
 
   htmlDecode(input) {
@@ -38,6 +51,9 @@ class InputView extends View
           break
         case 'HTML-Decode':
           resolve(this.htmlDecode(source))
+          break
+        case 'Hex-String Decode':
+          resolve(this.hexStringToString(source))
           break
         case 'Unchanged':
           resolve(source)
