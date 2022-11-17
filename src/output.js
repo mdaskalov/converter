@@ -25,6 +25,18 @@ class OutputView extends View {
         case 'SQL':
           return pd.sql(data)
           break
+        case 'XML-Min':
+          return pd.xmlmin(data)
+          break
+        case 'JSON-Min':
+          return pd.jsonmin(data)
+          break
+        case 'CSS-Min':
+          return pd.cssmin(data)
+          break
+        case 'SQL-Min':
+          return pd.sqlmin(data)
+          break
         case 'HEXDUMP':
           return hex(Buffer.from(data), { group: 1, offsetWidth: 5 })
           break
